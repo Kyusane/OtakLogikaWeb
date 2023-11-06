@@ -1,5 +1,9 @@
 import Image from 'next/image'
 
+import Icon67 from '../../public/Frame67.svg'
+import Icon68 from '../../public/Frame68.svg'
+import Icon69 from '../../public/Frame69.svg'
+
 
 export default function Home() {
 	return (
@@ -41,17 +45,30 @@ export default function Home() {
 				</div>
 				<div className="w-full h-[max-content]  flex justify-around items-center">
 					<div className="h-80 w-80 flex flex-col gap-10 justify-center items-center p3">
-						<div className="w-[70%] h-[70%] bg-slate-900">	
+						<div className="w-[70%] h-[70%] flex justify-center items-center">
+							<Image
+								src={Icon67}
+								alt="Gain world-class education to expand your technical knowledge">
+							</Image>
 						</div>
+
 						<h3 className="text-center text-main-darker  ">Gain world-class education to expand your technical knowledge</h3>
 					</div>
 					<div className="h-80 w-80 flex flex-col gap-10 justify-center items-center p3">
-						<div className="w-[70%] h-[70%] bg-slate-900">	
+						<div className="w-[70%] h-[70%] flex justify-center items-center">
+							<Image
+								src={Icon68}
+								alt="Get hands-on training to acquire practical skills">
+							</Image>
 						</div>
 						<h3 className="text-center text-main-darker ">Get hands-on training to acquire practical skills</h3>
 					</div>
 					<div className="h-80 w-80 flex flex-col gap-10 justify-center items-center p3">
-						<div className="w-[70%] h-[70%] bg-slate-900">	
+						<div className="w-[70%] h-[70%] flex justify-center items-center">
+							<Image
+								src={Icon69}
+								alt="Learn from a collaborative community of peers and mentors">
+							</Image>
 						</div>
 						<h3 className="text-center text-main-darker  ">Learn from a collaborative community of peers and mentors</h3>
 					</div>

@@ -1,0 +1,34 @@
+.h1 {
+     color: hsl(0, 0%, 28%);
+     font-size: 50px !important;
+     font-weight: bold !important;
+     font-family: monospace;
+     /* letter-spacing: 7px !important; */
+     cursor: pointer;
+     text-transform: uppercase;
+}
+
+.h1 {
+     padding: 64px;
+     animation: shine 3s infinite linear;
+}
+
+@keyframes shine {
+     20% {
+          transform:scale(1);
+          color:#f1ed3d;
+          letter-spacing: 7px;
+     }
+
+     40% {
+          transform:scale(1.1);
+          color:#61dafb;
+          letter-spacing: 20px;
+     }
+
+     80% {
+          transform:scale(1);
+          color:#d9dde2;
+          letter-spacing: 7px;
+     }
+}

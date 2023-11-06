@@ -1,37 +1,58 @@
 "use client"
 
-import React ,{useRef} from 'react'
+import React, { useRef, useState, useEffect } from 'react'
 import dynamic from 'next/dynamic'
 
 
-const EventCard = dynamic(()=>import("./_components/EventCard"))
+const EventCard = dynamic(() => import("./_components/EventCard"))
 
 const page = () => {
 
-     const searchRef = useRef()
+     useEffect(() => {
+          setDataAPI(data)
+     }, [])
 
-     const data =[
+     const data = [
           {
-               title : "Learn AI From Home"
+               title: "Learn AI From Home"
           },
           {
-               title : "Learn Machine Learning From Home"
+               title: "Learn Machine Learning From Home"
           },
           {
-               title : "Learn Cyber Security From Home"
+               title: "Learn Cyber Security From Home"
           },
           {
-               title : "What's Internet"
+               title: "What's Internet"
           },
           {
-               title : "Pyhton for AI"
+               title: "Pyhton for AI"
           },
           {
-               title : "Pyhton for ML"
+               title: "Pyhton for ML"
           },
      ]
 
-     
+     const [dataAPI, setDataAPI] = useState([])
+
+     const searchRef = useRef()
+     const searchHandler = (event) => {
+
+          if (!searchRef) return
+          // if (event.key === "Enter") {
+          //      event.preventDefault()
+          //      const keyword = searchRef.current.value
+          //      const searchData = data.filter(d => d.title.toLowerCase().includes(keyword))
+          //      setDataAPI(searchData)
+          //      console.log(searchData)
+
+          // }
+          event.preventDefault()
+          const keyword = searchRef.current.value.toLowerCase()
+          const searchData = data.filter(d => d.title.toLowerCase().includes(keyword))
+          setDataAPI(searchData)
+
+     }
 
      return (
           <>
@@ -46,13 +67,13 @@ const page = () => {
                     </div>
                     <div>
                          <form>
-                              <input type="text"  className="focus:outline-main-normal text-main-dark p-5 w-[50vw] rounded-xl" placeholder="Search Event" ref={searchRef} />
+                              <input type="text" onChange={searchHandler} className="focus:outline-main-normal text-main-dark p-5 w-[50vw] rounded-xl" placeholder="Search Event" ref={searchRef} />
                          </form>
                     </div>
                </section>
                <section className="w-full h-[max-content] bg-main-light p-20 grid grid-cols-2 justify-evenly gap-14">
                     {
-                         data.map(card => <EventCard title={card.title} key ={card.title}/>)
+                         dataAPI.map(card => <EventCard title={card.title} key={card.title} />)
                     }
                </section>
           </>
